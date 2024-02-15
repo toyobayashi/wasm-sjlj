@@ -18,7 +18,6 @@ cflags="-v -O3"
 # emcc -o ./out/emcc-wasm.html -sSUPPORT_LONGJMP=wasm $cflags --minify=0 ./test/main.c
 
 # $WASI_SDK_PATH/bin/clang --target=wasm32-wasi \
-#                          -D__USING_WASM_SJLJ__ \
 #                          -I./src \
 #                          $cflags \
 #                          -fwasm-exceptions \
@@ -35,8 +34,7 @@ $WASI_SDK_PATH/bin/clang $cflags \
                          -o ./out/emscripten_tempret.o \
                          ./src/emscripten_tempret.s \
 
-$WASI_SDK_PATH/bin/clang -D__USING_WASM_SJLJ__ \
-                         -I./src \
+$WASI_SDK_PATH/bin/clang -I./src \
                          $cflags \
                          -fwasm-exceptions \
                          -c \
@@ -53,8 +51,7 @@ $WASI_SDK_PATH/bin/clang $cflags \
                          -o ./out/emscripten_tempret.o \
                          ./src/emscripten_tempret.s \
 
-$WASI_SDK_PATH/bin/clang -D__USING_WASM_SJLJ__ \
-                         -I./src \
+$WASI_SDK_PATH/bin/clang -I./src \
                          $cflags \
                          --target=wasm32-wasi-threads -pthread -matomics -mbulk-memory \
                          -fwasm-exceptions \
