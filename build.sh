@@ -2,7 +2,7 @@
 
 # Refs:
 # https://reviews.llvm.org/D115893
-# https://github.com/microsoft/llvm/blob/master/lib/Target/WebAssembly/WebAssemblyLowerEmscriptenEHSjLj.cpp
+# https://github.com/llvm/llvm-project/blob/586ecdf205aa8b3d162da6f955170a6736656615/llvm/lib/Target/WebAssembly/WebAssemblyLowerEmscriptenEHSjLj.cpp#L187
 
 set -e
 
