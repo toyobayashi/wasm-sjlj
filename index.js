@@ -1,7 +1,7 @@
 'use strict'
 Object.defineProperty(exports, '__esModule', { value: true })
 
-const path = require('path')
+const path = require('node:path')
 
 const include = path.join(__dirname, 'include')
 const includeDir = path.relative(process.cwd(), include)
@@ -12,6 +12,7 @@ const sources = [
 const targets = path.relative(process.cwd(), path.join(__dirname, 'setjmp.gyp'))
 
 exports.include = include
+exports.lib = path.join(__dirname, 'lib')
 exports.include_dir = includeDir
 exports.sources = sources
 exports.targets = targets

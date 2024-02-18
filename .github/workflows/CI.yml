@@ -1,0 +1,41 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build & test
+        run: |
+          wget https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-21/wasi-sdk-21.0-macos.tar.gz
+          tar -xvf wasi-sdk-21.0-macos.tar.gz
+          export WASI_SDK_PATH=$(pwd)/wasi-sdk-21.0
+          yarn build
+          yarn test
+      - name: publish
+        run: |
+          npm config set provenance true
+          if git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$";
+          then
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+            npm publish --access public
+          elif git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+";
+          then
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+            npm publish --tag next --access public
+          else
+            npm publish --access public --dry-run
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
