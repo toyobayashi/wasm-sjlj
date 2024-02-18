@@ -16,11 +16,11 @@
       ],
       'link_settings': {
         'ldflags': [
-          '-mllvm -wasm-enable-sjlj',
+          '-mllvm', '-wasm-enable-sjlj',
         ],
         'xcode_settings': {
           'OTHER_LDFLAGS': [
-            '-mllvm -wasm-enable-sjlj',
+            '-mllvm', '-wasm-enable-sjlj',
           ],
         },
       },
