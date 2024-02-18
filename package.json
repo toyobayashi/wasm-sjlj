@@ -1,0 +1,34 @@
+{
+  "name": "wasm-sjlj",
+  "version": "1.0.0",
+  "description": "setjmp/longjmp implementation from Emscripten",
+  "main": "index.js",
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toyobayashi/wasm-sjlj.git"
+  },
+  "keywords": [
+    "emscripten",
+    "wasm",
+    "emcc",
+    "webassembly",
+    "clang",
+    "c",
+    "c++",
+    "cpp",
+    "wasi-sdk",
+    "wasi"
+  ],
+  "author": "toyobayashi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toyobayashi/wasm-sjlj/issues"
+  },
+  "homepage": "https://github.com/toyobayashi/wasm-sjlj#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
