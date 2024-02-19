@@ -14,12 +14,13 @@
       'include_dirs': [
         './include',
       ],
-      'link_settings': {
-        'ldflags': [
+      'all_dependent_settings': {
+        'include_dirs': ['./include'],
+        'cflags': [
           '-mllvm', '-wasm-enable-sjlj',
         ],
         'xcode_settings': {
-          'OTHER_LDFLAGS': [
+          'WARNING_CFLAGS': [
             '-mllvm', '-wasm-enable-sjlj',
           ],
         },
