@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "description": "setjmp/longjmp implementation from Emscripten",
   "main": "index.js",
+  "gypfile": false,
   "scripts": {
     "build": "./build.sh",
     "test": "node test/main.js"
