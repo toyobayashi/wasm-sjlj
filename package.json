@@ -1,6 +1,6 @@
 {
   "name": "wasm-sjlj",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "setjmp/longjmp implementation from Emscripten",
   "main": "index.js",
   "gypfile": false,

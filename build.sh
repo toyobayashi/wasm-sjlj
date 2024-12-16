@@ -67,6 +67,18 @@ $WASI_SDK_PATH/bin/clang -I./include \
                          $cflags \
                          -mllvm -wasm-enable-sjlj \
                          ./test/main.c \
+                         -c -o ./out/main.o
+
+$WASI_SDK_PATH/bin/clang -v -O3 \
+                         ./out/main.o \
                          -L./lib \
                          -lsetjmp \
                          -o ./test/main.wasm
+
+# $WASI_SDK_PATH/bin/clang -I./include \
+#                          $cflags \
+#                          -mllvm -wasm-enable-sjlj \
+#                          ./test/main.c \
+#                          -L./lib \
+#                          -lsetjmp \
+#                          -o ./test/main.wasm
